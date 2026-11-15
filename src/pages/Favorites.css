@@ -1,0 +1,136 @@
+.favorites-container {
+  padding: 40px;
+  min-height: 80vh;
+  background: #f5f6fa;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  font-size: 30px;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.favorite-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.favorite-card:hover {
+  transform: translateY(-5px);
+}
+
+.favorite-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  padding: 15px;
+}
+
+.favorite-content {
+  padding: 20px;
+}
+
+.favorite-content h2 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+}
+
+.favorite-content p {
+  margin: 8px 0;
+  color: #555;
+}
+
+.favorite-content button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  background: crimson;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.favorite-content button:hover {
+  background: darkred;
+}
+
+.empty-favorites {
+  text-align: center;
+  margin-top: 80px;
+}
+.favorites-page {
+  min-height: 100vh;
+  padding: 40px;
+  background: #f5f6fa;
+}
+
+.favorites-page h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2c3e50;
+}
+
+.empty-message {
+  text-align: center;
+  font-size: 18px;
+  color: #666;
+}
+
+.mobiles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.mobile-card {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
+
+.mobile-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+}
+
+.mobile-content h2 {
+  margin: 12px 0;
+}
+
+.delete-btn {
+  padding: 10px 15px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .mobiles {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .favorites-page {
+    padding: 20px;
+  }
+
+  .mobiles {
+    grid-template-columns: 1fr;
+  }
+}
