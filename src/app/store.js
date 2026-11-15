@@ -3,6 +3,6 @@ import favoriteReducer from "../features/favoriteSlice";
 
 export const store = configureStore({
   reducer: {
-    favorites: favoriteReducer
-  }
+    favorites: favoriteReducer,
+  },
 });
