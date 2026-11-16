@@ -1,13 +1,47 @@
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import "./Navbar.css";
 
 function Navbar() {
 
+  const navigate = useNavigate();
+
   const favorites = useSelector(
     state => state.favorites
   );
+
+  const [user, setUser] = useState(() => {
+    return JSON.parse(
+      localStorage.getItem("user") || "null"
+    );
+  });
+
+  useEffect(() => {
+    function updateUser() {
+      setUser(
+        JSON.parse(localStorage.getItem("user") || "null")
+      );
+    }
+
+    window.addEventListener("authChanged", updateUser);
+
+    return () => {
+      window.removeEventListener("authChanged", updateUser);
+    };
+  }, []);
+
+  function handleLogout() {
+
+    localStorage.removeItem("user");
+
+    setUser(null);
+
+    alert("Logout Successful!");
+
+    navigate("/login");
+  }
 
   return (
 
@@ -27,9 +61,28 @@ function Navbar() {
           Favorites ({favorites.length})
         </Link>
 
-        <Link to="/login">Login</Link>
+        {user ? (
 
-        <Link to="/register">Register</Link>
+          <>
+            <span>Welcome, {user.name}</span>
+
+            <button
+              onClick={handleLogout}
+              className="logout-btn"
+            >
+              Logout
+            </button>
+          </>
+
+        ) : (
+
+          <>
+            <Link to="/login">Login</Link>
+
+            <Link to="/register">Register</Link>
+          </>
+
+        )}
 
       </div>
 

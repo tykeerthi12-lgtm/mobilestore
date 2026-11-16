@@ -34,6 +34,9 @@ function Login() {
       })
     );
 
+    // Update Navbar login status
+    window.dispatchEvent(new Event("authChanged"));
+
     alert("Login Successful!");
 
     navigate("/");
@@ -52,6 +55,7 @@ function Login() {
         <form onSubmit={handleLogin}>
 
           <label>Email</label>
+
           <input
             type="email"
             value={email}
@@ -61,6 +65,7 @@ function Login() {
           />
 
           <label>Password</label>
+
           <input
             type="password"
             value={password}
